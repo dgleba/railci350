@@ -120,3 +120,45 @@ grep -rin --color=always lpa34 . | grep -vi -e deploy -e tmp -e .git -e log -e /
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+remove from routes.rb
+
+
+  resources :answers
+  resources :questions
+  resources :question_lists
+  resources :process_steps
+  resources :part_numbers
+  resources :surveys do
+    resources :questions do
+    end
+  end
+  resources :answers, only: [:create]
+  root "surveys#index"
+  resources :products
+  resources :product_features
+  resources :pfeatures
+  resources :country_of_origins
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+try running it.
+
+
+edit home index erb
+
+Showing /srv/share/ci/ci349a/app/views/layouts/application.html.erb where line #30 raised:
+
+edit ability.rb
+
+edit user.rb, remove surveys reference.
+
+rename development.sqlite3
+
+rake db:migrate
+rake db:seed
+
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+

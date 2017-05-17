@@ -21,15 +21,21 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <%= link_to 'Home ', root_path, class: 'navbar-brand' %>
+          <%= link_to 'Home (LPA)', root_path, class: 'navbar-brand' %>
         </div>
 
+        <div class="collapse navbar-collapse" id="navbar">
+          <ul class="nav navbar-nav">
+            <li>
+              <!-- <%#= link_to 'Products', products_path %> -->
+            </li>
+          </ul>
 
           
         <ul class="nav navbar-nav navbar-right">
         
         <li >
-        <%#= link_to "New LPA", new_survey_path, :class => "btn btn-secondary " %>
+        <%= link_to "New LPA", new_survey_path, :class => "btn btn-secondary " %>
         </li>
         <li>
         <%= link_to "Administer", rails_admin.dashboard_path, :class => "btn btn-secondary " %>
