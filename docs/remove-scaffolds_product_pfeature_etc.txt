@@ -68,7 +68,7 @@ find . -type d  \( -iname $patrn  \) > $tmpf1                        # directori
 sed -i  's/$/\//' $tmpf1  # add trailing slash to end of each line in file..
   rsync -av --remove-source-files  --files-from=$tmpf1 . $dest1
   
-patrn="*country_of_ori*"
+patrn="*country_of_origin*"
 dest1="../0movedfiles1"
 tmpf1='/tmp/rsyncfiles'
 find . -type f  \( -iname $patrn ! -iname "production.rb" \) > $tmpf1 # files.
@@ -76,6 +76,7 @@ find . -type f  \( -iname $patrn ! -iname "production.rb" \) > $tmpf1 # files.
 find . -type d  \( -iname $patrn  \) > $tmpf1                        # directories/folders.
 sed -i  's/$/\//' $tmpf1  # add trailing slash to end of each line in file..
   rsync -av --remove-source-files  --files-from=$tmpf1 . $dest1
+rails destroy scaffold $patrn  
   
   
 patrn2=product  
@@ -89,6 +90,33 @@ grep -rli --exclude-dir={tmp,log,docs,.git} --exclude=*.sqlite3 $patrn2 .
 patrn2=country_of_or
 grep -ri  --exclude-dir={tmp,log,docs,.git} --exclude={*.sqlite3,*.logz} $patrn2 .
 grep -rli --exclude-dir={tmp,log,docs,.git} --exclude=*.sqlite3 $patrn2 .
+ 
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+patrn="CountryOfOrigin*"
+rails destroy scaffold $patrn  
+
+patrn="Product*"
+rails destroy scaffold $patrn  
+  
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ 
    
-   
+rm -rf .git  
+git init  
+git add -A  # Add all files and commit them  
+git commit -m "Removed history and started over"  
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Application name is referenced in..
+
+grep -rin --color=always rail2 . | grep -vi -e deploy -e tmp -e .git -e log -e /offline -e readme -e docs -e mtime -e offlin
+grep -rin --color=always lpa34 . | grep -vi -e deploy -e tmp -e .git -e log -e /offline -e readme -e docs -e mtime -e offlin
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
