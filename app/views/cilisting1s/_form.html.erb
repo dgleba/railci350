@@ -1,0 +1,54 @@
+<%= simple_form_for(@cilisting1) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :ft %>
+    <%= f.input :project_number %>
+    <%= f.input :project_description %>
+    <%= f.input :owner %>
+    <%= f.input :planned_timing %>
+    <%= f.input :revised_timing %>
+    <%= f.input :estimated_cost %>
+    <%= f.input :savings_category %>
+    <%= f.input :annual_savings_dollars %>
+    <%= f.input :percent_complete %>
+    <%= f.input :comments %>
+    <%= f.input :originator %>
+    <%= f.input :team %>
+    <%= f.input :documents_complete %>
+    <%= f.input :one_time_savings %>
+    <%= f.input :hard_soft_savings %>
+    <%= f.input :soft_dollars %>
+    <%= f.input :il1_target_date %>
+    <%= f.input :il2_target_date %>
+    <%= f.input :il3_target_date %>
+    <%= f.input :il4_target_date %>
+    <%= f.input :il5_target_date %>
+    <%= f.input :wc_idea_date %>
+    <%= f.input :actual_implementation_date %>
+    <%= f.input :enter_in_wc %>
+    <%= f.input :area %>
+    <%= f.input :updatedtime %>
+    <%= f.input :id_wc %>
+    <%= f.input :environmental %>
+    <%= f.input :ease_of_implementation %>
+    <%= f.input :submit %>
+    <%= f.input :next_steps %>
+    <%= f.input :suggestion_status %>
+    <%= f.input :suggestion_status_updated_at %>
+    <%= f.input :group %>
+    <%= f.input :metric_impact %>
+    <%= f.input :gift2_4_suggestion %>
+    <%= f.input :gift_4_suggestion %>
+    <%= f.input :il_current %>
+    <%= f.input :createdtime %>
+    <%= f.input :link %>
+    <%= f.input :linkmore %>
+    <%= f.input :display %>
+    <%= f.input :ciid %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-success'%>
+  </div>
+<% end %>

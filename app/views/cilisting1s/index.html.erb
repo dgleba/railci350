@@ -1,0 +1,146 @@
+
+<row class="row is-table-row" >
+
+  <div class="col-sm-1 ">
+    <%= link_to 'Create', new_cilisting1_path , class: "btn btn-success"%>
+  </div>
+
+  <div class="col-sm-2 ">
+    <h4>Listing Cilisting1s</h4>
+  </div>
+
+  <div class="col-sm-3">
+    <%= search_form_for @q, class: 'search-form' do |f| %>
+      <div class="input-group">
+        <%= f.search_field :ft_cont, class: 'form-control' %>
+        <span class="input-group-btn">
+          <button class="btn btn-primary">Search <i class="fa fa-search"></i>
+          </button>
+        </span>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col-sm-4 ">
+    <%= paginate @cilisting1s %>
+  </div>
+  
+  <div class="col-sm-2 ">
+    <%= page_entries_info @cilisting1s, :entry_name => 'item' %>
+  </div>
+  
+</row>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th colspan="1"></th>
+            <th>Ft</th>
+      <th>Project number</th>
+      <th>Project description</th>
+      <th>Owner</th>
+      <th>Planned timing</th>
+      <th>Revised timing</th>
+      <th>Estimated cost</th>
+      <th>Savings category</th>
+      <th>Annual savings dollars</th>
+      <th>Percent complete</th>
+      <th>Comments</th>
+      <th>Originator</th>
+      <th>Team</th>
+      <th>Documents complete</th>
+      <th>One time savings</th>
+      <th>Hard soft savings</th>
+      <th>Soft dollars</th>
+      <th>Il1 target date</th>
+      <th>Il2 target date</th>
+      <th>Il3 target date</th>
+      <th>Il4 target date</th>
+      <th>Il5 target date</th>
+      <th>Wc idea date</th>
+      <th>Actual implementation date</th>
+      <th>Enter in wc</th>
+      <th>Area</th>
+      <th>Updatedtime</th>
+      <th>Id wc</th>
+      <th>Environmental</th>
+      <th>Ease of implementation</th>
+      <th>Submit</th>
+      <th>Next steps</th>
+      <th>Suggestion status</th>
+      <th>Suggestion status updated at</th>
+      <th>Group</th>
+      <th>Metric impact</th>
+      <th>Gift2 4 suggestion</th>
+      <th>Gift 4 suggestion</th>
+      <th>Il current</th>
+      <th>Createdtime</th>
+      <th>Link</th>
+      <th>Linkmore</th>
+      <th>Display</th>
+      <th>Ciid</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cilisting1s.each do |cilisting1| %>
+      <tr>
+        <td>
+          <div class="btn-group">
+          <%= link_to 'Show', cilisting1, class: "btn btn-info", :style=>'color:#FFFFFF;' %>
+          <%= link_to 'Edit', edit_cilisting1_path(cilisting1), class: "btn btn-primary", :style=>'color:#FFFFFF;' %>
+          <%= link_to 'Destroy', cilisting1, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning", :style=>'color:#FFFFFF;' %>
+          </div>
+        </td>
+        
+        <td><%= cilisting1.ft %></td>
+        <td><%= cilisting1.project_number %></td>
+        <td><%= cilisting1.project_description %></td>
+        <td><%= cilisting1.owner %></td>
+        <td><%= cilisting1.planned_timing %></td>
+        <td><%= cilisting1.revised_timing %></td>
+        <td><%= cilisting1.estimated_cost %></td>
+        <td><%= cilisting1.savings_category %></td>
+        <td><%= cilisting1.annual_savings_dollars %></td>
+        <td><%= cilisting1.percent_complete %></td>
+        <td><%= cilisting1.comments %></td>
+        <td><%= cilisting1.originator %></td>
+        <td><%= cilisting1.team %></td>
+        <td><%= cilisting1.documents_complete %></td>
+        <td><%= cilisting1.one_time_savings %></td>
+        <td><%= cilisting1.hard_soft_savings %></td>
+        <td><%= cilisting1.soft_dollars %></td>
+        <td><%= cilisting1.il1_target_date %></td>
+        <td><%= cilisting1.il2_target_date %></td>
+        <td><%= cilisting1.il3_target_date %></td>
+        <td><%= cilisting1.il4_target_date %></td>
+        <td><%= cilisting1.il5_target_date %></td>
+        <td><%= cilisting1.wc_idea_date %></td>
+        <td><%= cilisting1.actual_implementation_date %></td>
+        <td><%= cilisting1.enter_in_wc %></td>
+        <td><%= cilisting1.area %></td>
+        <td><%= cilisting1.updatedtime %></td>
+        <td><%= cilisting1.id_wc %></td>
+        <td><%= cilisting1.environmental %></td>
+        <td><%= cilisting1.ease_of_implementation %></td>
+        <td><%= cilisting1.submit %></td>
+        <td><%= cilisting1.next_steps %></td>
+        <td><%= cilisting1.suggestion_status %></td>
+        <td><%= cilisting1.suggestion_status_updated_at %></td>
+        <td><%= cilisting1.group %></td>
+        <td><%= cilisting1.metric_impact %></td>
+        <td><%= cilisting1.gift2_4_suggestion %></td>
+        <td><%= cilisting1.gift_4_suggestion %></td>
+        <td><%= cilisting1.il_current %></td>
+        <td><%= cilisting1.createdtime %></td>
+        <td><%= cilisting1.link %></td>
+        <td><%= cilisting1.linkmore %></td>
+        <td><%= cilisting1.display %></td>
+        <td><%= cilisting1.ciid %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
