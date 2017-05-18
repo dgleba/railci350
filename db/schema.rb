@@ -704,7 +704,7 @@ ActiveRecord::Schema.define(version: 50161230223301) do
     t.index ["name"], name: "name", unique: true, using: :btree
   end
 
-  create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "roles_rr", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
     t.string   "description"
     t.integer  "active_status"
@@ -741,26 +741,6 @@ ActiveRecord::Schema.define(version: 50161230223301) do
     t.index ["username"], name: "username", using: :btree
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "name"
-    t.integer  "role_id",                default: 1
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-    t.index ["role_id"], name: "index_users_on_role_id", using: :btree
-  end
-
   create_table "users__history", primary_key: "history__id", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "history__language", limit: 2
     t.text     "history__comments", limit: 65535
@@ -780,6 +760,26 @@ ActiveRecord::Schema.define(version: 50161230223301) do
     t.datetime "updatedtime"
     t.index ["history__modified"], name: "datekeys", using: :btree
     t.index ["username"], name: "prikeys", using: :btree
+  end
+
+  create_table "users_rr", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "name"
+    t.integer  "role_id",                default: 1
+    t.index ["email"], name: "index_users_rr_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_rr_on_reset_password_token", unique: true, using: :btree
+    t.index ["role_id"], name: "index_users_rr_on_role_id", using: :btree
   end
 
   create_table "users_xataface", primary_key: "username", id: :string, limit: 32, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -807,5 +807,5 @@ ActiveRecord::Schema.define(version: 50161230223301) do
   add_foreign_key "polls_choice", "polls_question", column: "question_id", name: "polls_choice_question_id_40fbbd72_fk_polls_question_id"
   add_foreign_key "roles_users", "role", name: "roles_users_ibfk_2"
   add_foreign_key "roles_users", "user", name: "roles_users_ibfk_1"
-  add_foreign_key "users", "roles"
+  add_foreign_key "users_rr", "roles_rr", column: "role_id"
 end

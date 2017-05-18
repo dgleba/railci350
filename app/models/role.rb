@@ -1,5 +1,8 @@
 class Role < ActiveRecord::Base
-  has_many :users
+
+    self.table_name = 'roles_rr'
+
+    has_many :users
   
   validates :name, presence: true, uniqueness: true 
 

@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+
+  self.table_name = 'users_rr'
+ 
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable,  and :omniauthable , :timeoutable
    devise :ldap_authenticatable,
