@@ -1,0 +1,76 @@
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+
+ purpose: hook up starter app to cilisting1
+ 
+ 
+ 
+-----------------------2017-05-17[May-Wed]16-39PM
+ 
+ 
+ 
+
+ 
+
+copy template 349a
+
+get database.yml from carlson
+
+get .env from carlson
+
+
+rails g model cilisting1 --no-migration
+
+migrate users/roles tables.
+
+ errors ...
+
+truncate table schema_migrations;
+drop table users;
+drop table roles;
+
+
+not sure this was needed.
+
+SET foreign_key_checks = 0;
+
+    ActiveRecord::Base.connection.execute(
+        <<-SQL
+          SET foreign_key_checks = 0;
+        SQL
+      )
+
+_____________ 
+
+
+
+Mysql2::Error: Can't create table #sql (errno: 121): ALTER TABLE users ADD CONSTRAINT fk_rails_
+      
+      
+
+i had users517 table and users.
+
+I renamed it for safety.
+
+You will get this message if you're trying to add a constraint with a name that's already used somewhere else
+
+_____________ 
+
+
+rake db:migrate
+rake db:seed
+
+
+      
+railss3
+
+
+change role to 18 admin
+
+put table name in model
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+

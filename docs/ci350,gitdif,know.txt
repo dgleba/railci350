@@ -1,0 +1,91 @@
+diff --git a/Gemfile b/Gemfile
+index be4e069..28d359c 100755
+--- a/Gemfile
++++ b/Gemfile
+@@ -7,7 +7,7 @@ end
+ 
+ gem 'rails', '~> 5.0.2'
+ gem 'dotenv-rails'
+-gem 'sqlite3'
++gem 'mysql2'
+ gem 'puma', '~> 3.0'
+ gem 'sass-rails', '~> 5.0'
+ gem 'uglifier', '>= 1.3.0'
+
+ 
+_____________ 
+
+
+
+turn off login and roles...
+
+
+ 
+diff --git a/config/initializers/rails_admin.rb b/config/initializers/rails_admin.rb
+index 7c6e25a..6df55f5 100755
+--- a/config/initializers/rails_admin.rb
++++ b/config/initializers/rails_admin.rb
+@@ -4,13 +4,13 @@ RailsAdmin.config do |config|
+   ### Popular gems integration
+ 
+   # == Devise ==
+-  config.authenticate_with do
+-    warden.authenticate! scope: :user
+-  end
+-  config.current_user_method(&:current_user)
++  # config.authenticate_with do
++    # warden.authenticate! scope: :user
++  # end
++  # config.current_user_method(&:current_user)
+ 
+   ## == Cancan ==
+-   config.authorize_with :cancan
++   # config.authorize_with :cancan
+      # config.authorize_with :cancan, AdminAbility
+ 
+ 
+_____________ 
+
+
+not sure this is needed...
+ 
+ 
+diff --git a/db/migrate/20170503194508_add_role_to_user.rb b/db/migrate/20170503194508_add_role_to_user.rb
+index b0a2403..e707b17 100755
+--- a/db/migrate/20170503194508_add_role_to_user.rb
++++ b/db/migrate/20170503194508_add_role_to_user.rb
+@@ -1,5 +1,33 @@
+ class AddRoleToUser < ActiveRecord::Migration[5.0]
++
++
+   def change
++
++
++    ActiveRecord::Base.connection.execute(
++        <<-SQL
++          SET foreign_key_checks = 0;
++        SQL
++      )
++
++
++
+     add_reference :users, :role, foreign_key: true
++
++
++
++    ActiveRecord::Base.connection.execute( 
++        <<-SQL
++          SET foreign_key_checks = 1;
++        SQL
++      )
++
++
++
++
+   end
++
++  
+ end
++
++
+
