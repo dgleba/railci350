@@ -10,7 +10,7 @@ Dotenv::Railtie.load
 
 ENV['RAILS_ADMIN_THEME'] = 'material'
 
-module LPA346
+module CI_350
   class Application < Rails::Application
 
     
