@@ -1,0 +1,14 @@
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2017-05-19[May-Fri]10-38AM
+
+git remote add origin https://github.com/dgleba/railci350.git
+
+git branch --set-upstream-to=origin/master master
+
+git push -u origin master
+
+
+ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
