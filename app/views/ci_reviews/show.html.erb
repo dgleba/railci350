@@ -1,0 +1,64 @@
+
+<p>
+  <strong>Project number:</strong>
+  <%= @ci_review.project_number %>
+</p>
+
+<p>
+  <strong>Suggestion status:</strong>
+  <%= @ci_review.suggestion_status %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @ci_review.owner %>
+</p>
+
+<p>
+  <strong>Project description:</strong>
+  <%= @ci_review.project_description %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @ci_review.comments %>
+</p>
+
+<p>
+  <strong>Originator:</strong>
+  <%= @ci_review.originator %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @ci_review.link %>
+</p>
+
+<p>
+  <strong>Linkmore:</strong>
+  <%= @ci_review.linkmore %>
+</p>
+
+<p>
+  <strong>Team:</strong>
+  <%= @ci_review.team %>
+</p>
+
+<p>
+  <strong>Wc idea date:</strong>
+  <%= @ci_review.wc_idea_date %>
+</p>
+
+<p>
+  <strong>Ciid:</strong>
+  <%= @ci_review.ciid %>
+</p>
+
+<p>
+  <strong>Updatedtime:</strong>
+  <%= @ci_review.updatedtime %>
+</p>
+
+<br>
+<%= link_to 'Edit', edit_ci_review_path(@ci_review), class: "btn btn-primary", :style=>'color:#FFFFFF;' %> &nbsp &nbsp
+<%= link_to 'Back', ci_reviews_path, class: "btn btn-default" %>

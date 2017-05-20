@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
  
 
+  resources :ci_reviews
   resources :cilisting1s
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
