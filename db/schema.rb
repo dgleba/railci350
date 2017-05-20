@@ -10,12 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 50161230223301) do
+ActiveRecord::Schema.define(version: 50161230223302) do
 
   create_table "about_this_app", primary_key: "sortorder", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.text     "about_fld",   limit: 65535,                                      null: false
     t.datetime "createdtime",               default: -> { "CURRENT_TIMESTAMP" }
     t.datetime "updatedtime"
+  end
+
+  create_table "about_this_app__history", primary_key: "history__id", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "history__language", limit: 2
+    t.text     "history__comments", limit: 65535
+    t.string   "history__user",     limit: 32
+    t.integer  "history__state",                  default: 0
+    t.datetime "history__modified"
+    t.integer  "sortorder"
+    t.text     "about_fld",         limit: 65535
+    t.datetime "createdtime",                     default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "updatedtime"
+    t.index ["history__modified"], name: "datekeys", using: :btree
+    t.index ["sortorder"], name: "prikeys", using: :btree
   end
 
   create_table "auth_group", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -412,7 +426,7 @@ ActiveRecord::Schema.define(version: 50161230223301) do
     t.integer "mtime"
   end
 
-  create_table "dataface__preferences", primary_key: "pref_id", unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "dataface__preferences", primary_key: "pref_id", unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "username",  limit: 64,  null: false
     t.string "table",     limit: 128, null: false
     t.string "record_id",             null: false
@@ -428,7 +442,7 @@ ActiveRecord::Schema.define(version: 50161230223301) do
     t.integer "mtime",    null: false
   end
 
-  create_table "dataface__version", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "dataface__version", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "version", default: 0, null: false
   end
 
@@ -671,6 +685,14 @@ ActiveRecord::Schema.define(version: 50161230223301) do
     t.index ["metric_list"], name: "metric_list", unique: true, using: :btree
   end
 
+  create_table "lkup_sugg_statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "name"
+    t.integer  "sort"
+    t.integer  "active_status"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "old_emp_ceridian", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "x9",           limit: 14
     t.string   "eenum",        limit: 7
@@ -783,6 +805,19 @@ ActiveRecord::Schema.define(version: 50161230223301) do
   end
 
   create_table "users_xataface", primary_key: "username", id: :string, limit: 32, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "password",     limit: 244,                                        null: false
+    t.string   "Role",         limit: 9,     default: "ADDER"
+    t.string   "first_name",   limit: 233
+    t.string   "last_name",    limit: 233
+    t.string   "address",      limit: 244
+    t.string   "phone_num",    limit: 211
+    t.string   "email",        limit: 234,                                        null: false
+    t.text     "comment_fld1", limit: 65535
+    t.datetime "createdtime",                default: -> { "CURRENT_TIMESTAMP" }
+    t.datetime "updatedtime"
+  end
+
+  create_table "z_dataface_users", primary_key: "username", id: :string, limit: 32, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "password",     limit: 244,                                        null: false
     t.string   "Role",         limit: 9,     default: "ADDER"
     t.string   "first_name",   limit: 233

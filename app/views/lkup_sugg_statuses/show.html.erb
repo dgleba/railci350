@@ -1,0 +1,19 @@
+
+<p>
+  <strong>Name:</strong>
+  <%= @lkup_sugg_status.name %>
+</p>
+
+<p>
+  <strong>Sort:</strong>
+  <%= @lkup_sugg_status.sort %>
+</p>
+
+<p>
+  <strong>Active status:</strong>
+  <%= @lkup_sugg_status.active_status %>
+</p>
+
+<br>
+<%= link_to 'Edit', edit_lkup_sugg_status_path(@lkup_sugg_status), class: "btn btn-primary", :style=>'color:#FFFFFF;' %> &nbsp &nbsp
+<%= link_to 'Back', lkup_sugg_statuses_path, class: "btn btn-default" %>

@@ -63,10 +63,19 @@
         </td>
         
         <td><%= ci_review.project_number %></td>
-        <td><%= ci_review.suggestion_status %></td>
+
+        <td style="color:green;">        
+        <!-- https://github.com/bernat/best_in_place -->
+        <%= best_in_place ci_review, :suggestion_status, :as => :select, :collection => LkupSuggStatus.all.map { |i| [i.name, i.name] } %>
+        <%#= best_in_place ci_review, :suggestion_status, :as => :select, :collection => LkupSuggStatus.all.map { |i| [i.name, i.name] }, :class => 'dgselect2' %>
+        <%#= best_in_place ci_review, :suggestion_status, :type => :select, :collection => %w(Investigate Implement Review PreviouslyPlanned Complete) %>
+        <%#= best_in_place ci_review, :suggestion_status, :as => :select, :collection => {"Investigate" => "Investigate", "Implement" => "Implement", "3" => "Germany", "4" => "France"} %>
+
+        </td>
+
         <td><%= ci_review.owner %></td>
         <td><%= ci_review.project_description %></td>
-        <td><%= ci_review.comments %></td>
+        <td><%= best_in_place ci_review, :comments, :as => :textarea , :ok_button => 'Save', :cancel_button => 'Cancel' %></td>
         <td><%= ci_review.originator %></td>
         <td><%= ci_review.link %></td>
         <td><%= ci_review.linkmore %></td>

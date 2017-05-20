@@ -1,0 +1,2 @@
+class LkupSuggStatus < ApplicationRecord
+end
