@@ -1,0 +1,82 @@
+
+<row class="row is-table-row" >
+
+  <div class="col-sm-1 ">
+    <%= link_to 'Create', new_ci_review_path , class: "btn btn-success"%>
+  </div>
+
+  <div class="col-sm-2 ">
+    <h4>Listing Ci Reviews</h4>
+  </div>
+
+  <div class="col-sm-3">
+    <%= search_form_for @q, class: 'search-form' do |f| %>
+      <div class="input-group">
+        <%= f.search_field :project_number_cont, class: 'form-control' %>
+        <span class="input-group-btn">
+          <button class="btn btn-primary">Search <i class="fa fa-search"></i>
+          </button>
+        </span>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col-sm-4 ">
+    <%= paginate @ci_reviews %>
+  </div>
+  
+  <div class="col-sm-2 ">
+    <%= page_entries_info @ci_reviews, :entry_name => 'item' %>
+  </div>
+  
+</row>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th colspan="1"></th>
+            <th>Project number</th>
+      <th>Suggestion status</th>
+      <th>Owner</th>
+      <th>Project description</th>
+      <th>Comments</th>
+      <th>Originator</th>
+      <th>Link</th>
+      <th>Linkmore</th>
+      <th>Team</th>
+      <th>Wc idea date</th>
+      <th>Ciid</th>
+      <th>Updatedtime</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ci_reviews.each do |ci_review| %>
+      <tr>
+        <td>
+          <div class="btn-group">
+          <%= link_to 'Show', ci_review, class: "btn btn-info", :style=>'color:#FFFFFF;' %>
+          <%= link_to 'Edit', edit_ci_review_path(ci_review), class: "btn btn-primary", :style=>'color:#FFFFFF;' %>
+          <%= link_to 'Destroy', ci_review, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning", :style=>'color:#FFFFFF;' %>
+          </div>
+        </td>
+        
+        <td><%= ci_review.project_number %></td>
+        <td><%= ci_review.suggestion_status %></td>
+        <td><%= ci_review.owner %></td>
+        <td><%= ci_review.project_description %></td>
+        <td><%= ci_review.comments %></td>
+        <td><%= ci_review.originator %></td>
+        <td><%= ci_review.link %></td>
+        <td><%= ci_review.linkmore %></td>
+        <td><%= ci_review.team %></td>
+        <td><%= ci_review.wc_idea_date %></td>
+        <td><%= ci_review.ciid %></td>
+        <td><%= ci_review.updatedtime %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

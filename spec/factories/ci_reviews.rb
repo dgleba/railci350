@@ -9,8 +9,8 @@ FactoryGirl.define do
     link "MyString"
     linkmore "MyString"
     team "MyString"
-    wc_idea_date "2017-05-19"
+    wc_idea_date "2017-05-20"
     ciid 1
-    updatedtime "2017-05-19 22:18:59"
+    updatedtime "2017-05-20 13:03:24"
   end
 end

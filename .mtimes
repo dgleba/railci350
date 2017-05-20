@@ -5,14 +5,12 @@
 1495246820|app/models/ci_review.rb
 1495234423|app/models/user.rb
 1495246740|app/views/ci_reviews/_ci_review.json.jbuilder
-1495246740|app/views/ci_reviews/_form.html.erb
 1495246649|app/views/ci_reviews/edit.html.erb
 1495246650|app/views/ci_reviews/index.json.jbuilder
 1495246649|app/views/ci_reviews/new.html.erb
 1495246740|app/views/ci_reviews/show.html.erb
 1495246650|app/views/ci_reviews/show.json.jbuilder
 1495246649|spec/controllers/ci_reviews_controller_spec.rb
-1495246739|spec/factories/ci_reviews.rb
 1495246650|spec/helpers/ci_reviews_helper_spec.rb
 1495246649|spec/models/ci_review_spec.rb
 1495246650|spec/requests/ci_reviews_spec.rb
@@ -58,3 +56,7 @@
 1495299414|lib/templates/erb/scaffold/_form.html.erb
 1495299379|util/scaf-rf.sh
 1495298781|util/scaf-sf.sh
+1495299827|app/views/ci_reviews/_form.html.erb
+1495299808|app/views/ci_reviews/index.html__2017-05-20_13.04.12.erb
+1495299573|docs/railci350-scaffold-master.txt
+1495299808|spec/factories/ci_reviews.rb
