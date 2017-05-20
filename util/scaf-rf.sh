@@ -17,6 +17,10 @@ exit 999
 
   Purpose:     switch between form scaffolds:  rails form for, simpleform, bootstrap form.
 
+  usage:        
+  
+      util/scaf-rf.sh
+      
 
 BLOCKCOMMENT
 }
@@ -27,6 +31,6 @@ BLOCKCOMMENT
 saynow
 #
 
-#simpleform:
-cp 'lib/templates/erb/scaffold/_form.html,simpleform-1.erb'  lib/templates/erb/scaffold/_form.html.erb
 
+#to rails form_for:
+cp 'lib/templates/erb/scaffold/_form.html,railsform_for-2.erb'  lib/templates/erb/scaffold/_form.html.erb
