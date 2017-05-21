@@ -1,0 +1,129 @@
+
+<%= form_for(@leader, html: { class: "form-horizontal", role: "form" }) do |f| %>
+  <% if @leader.errors.any? %>
+    <div class="alert alert-danger alert-dismissable" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h4><%= pluralize(@leader.errors.count, "error") %> prohibited this leader from being saved:</h4>
+      <ul>
+      <% @leader.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="form-group">
+            <%= f.label :clocknum, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_field :clocknum, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :Name, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_field :Name, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :fullcommonname, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_field :fullcommonname, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :ci_leader, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_field :ci_leader, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :comment, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_field :comment, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :updatedtime, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.datetime_select :updatedtime, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :createdtime, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.datetime_select :createdtime, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :position, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_field :position, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :shift, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_field :shift, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :dept, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_field :dept, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :Common_Name, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_field :Common_Name, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :fullname, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_field :fullname, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :Middleproper, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_field :Middleproper, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :Lastproper, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_field :Lastproper, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :Firstproper, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_field :Firstproper, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :First, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_field :First, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :Middle, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_field :Middle, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :Last, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_field :Last, class: "form-control" %>
+      </div>
+        </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

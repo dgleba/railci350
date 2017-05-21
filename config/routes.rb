@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
  
 
+  resources :leaders
   resources :lkup_sugg_statuses
   resources :ci_reviews
   resources :cilisting1s

@@ -21,15 +21,22 @@
   <div class="form-group">
             <%= f.label :suggestion_status, class: "col-sm-2 control-label" %>
         <div class="col-sm-10">
-        <%= f.text_field :suggestion_status, class: "form-control" %>
+        <%#= f.text_field :suggestion_status, class: "form-control" %>
+        <%= f.collection_select(:suggestion_status,  LkupSuggStatus.all, :name, :name, {:prompt   => "Select a Status"}, { :class => 'dgselect2' }) %>
       </div>
         </div>
   <div class="form-group">
             <%= f.label :owner, class: "col-sm-2 control-label" %>
         <div class="col-sm-10">
-        <%= f.text_field :owner, class: "form-control" %>
+        <%#= f.text_field :owner, class: "form-control" %>
+        <%#= select_tag "answers[#{question.id}]", options_from_collection_for_select(PartNumber.all, :name , :name ) , { :prompt => 'Please Select', :required => true,  :class => 'dgselect2' , :autocomplete => :off }  %>
+        <%#= f.collection_select(:brand,  @brands, :name, :name, {:prompt   => "Select a Brand"}, {:id => 'brands_select'}) %>
+        <%#= f.collection_select :country_of_origin_id, CountryOfOrigin.all, :id, :name,  { prompt: true }, { :class => 'dgselect2' }  %>
+        <%= f.collection_select(:owner,  Leader.all, :fullcommonname, :fullcommonname, {:prompt   => "Select a Name"}, {:id => 'lss_select', :class => 'dgselect2' }) %>
+
       </div>
-        </div>
+  </div>
+        
   <div class="form-group">
             <%= f.label :project_description, class: "col-sm-2 control-label" %>
         <div class="col-sm-10">
@@ -52,14 +59,20 @@
             <%= f.label :link, class: "col-sm-2 control-label" %>
         <div class="col-sm-10">
         <%= f.text_field :link, class: "form-control" %>
+        <br><%= link_to "link" , root_url+@ci_review.link_web , { target: '_blank' } %>
       </div>
         </div>
   <div class="form-group">
             <%= f.label :linkmore, class: "col-sm-2 control-label" %>
         <div class="col-sm-10">
         <%= f.text_field :linkmore, class: "form-control" %>
+        
+        <br><%= link_to "link" , root_url+@ci_review.linkmore_web , { target: '_blank' } %>
+        <%#= link_to customer.address, root_url+customer.address , { target: '_blank' } %>
       </div>
         </div>
+
+
   <div class="form-group">
             <%= f.label :team, class: "col-sm-2 control-label" %>
         <div class="col-sm-10">
@@ -69,19 +82,19 @@
   <div class="form-group">
             <%= f.label :wc_idea_date, class: "col-sm-2 control-label" %>
         <div class="col-sm-10">
-        <%= f.date_select :wc_idea_date, class: "form-control" %>
+        <%= @ci_review.wc_idea_date %>
       </div>
         </div>
   <div class="form-group">
             <%= f.label :ciid, class: "col-sm-2 control-label" %>
         <div class="col-sm-10">
-        <%= f.number_field :ciid, class: "form-control" %>
+        <%= @ci_review.ciid %>
       </div>
         </div>
   <div class="form-group">
             <%= f.label :updatedtime, class: "col-sm-2 control-label" %>
         <div class="col-sm-10">
-        <%= f.datetime_select :updatedtime, class: "form-control" %>
+        <%= @ci_review.updatedtime %>
       </div>
         </div>
 
