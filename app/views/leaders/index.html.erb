@@ -1,0 +1,94 @@
+
+<row class="row is-table-row" >
+
+  <div class="col-sm-1 ">
+    <%= link_to 'Create', new_leader_path , class: "btn btn-success"%>
+  </div>
+
+  <div class="col-sm-2 ">
+    <h4>Listing Leaders</h4>
+  </div>
+
+  <div class="col-sm-3">
+    <%= search_form_for @q, class: 'search-form' do |f| %>
+      <div class="input-group">
+        <%= f.search_field :clocknum_cont, class: 'form-control' %>
+        <span class="input-group-btn">
+          <button class="btn btn-primary">Search <i class="fa fa-search"></i>
+          </button>
+        </span>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col-sm-4 ">
+    <%= paginate @leaders %>
+  </div>
+  
+  <div class="col-sm-2 ">
+    <%= page_entries_info @leaders, :entry_name => 'item' %>
+  </div>
+  
+</row>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th colspan="1"></th>
+            <th>Clocknum</th>
+      <th>Name</th>
+      <th>Fullcommonname</th>
+      <th>Ci leader</th>
+      <th>Comment</th>
+      <th>Updatedtime</th>
+      <th>Createdtime</th>
+      <th>Position</th>
+      <th>Shift</th>
+      <th>Dept</th>
+      <th>Common name</th>
+      <th>Fullname</th>
+      <th>Middleproper</th>
+      <th>Lastproper</th>
+      <th>Firstproper</th>
+      <th>First</th>
+      <th>Middle</th>
+      <th>Last</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @leaders.each do |leader| %>
+      <tr>
+        <td>
+          <div class="btn-group">
+          <%= link_to 'Show', leader, class: "btn btn-info", :style=>'color:#FFFFFF;' %>
+          <%= link_to 'Edit', edit_leader_path(leader), class: "btn btn-primary", :style=>'color:#FFFFFF;' %>
+          <%= link_to 'Destroy', leader, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning", :style=>'color:#FFFFFF;' %>
+          </div>
+        </td>
+        
+        <td><%= leader.clocknum %></td>
+        <td><%= leader.Name %></td>
+        <td><%= leader.fullcommonname %></td>
+        <td><%= leader.ci_leader %></td>
+        <td><%= leader.comment %></td>
+        <td><%= leader.updatedtime %></td>
+        <td><%= leader.createdtime %></td>
+        <td><%= leader.position %></td>
+        <td><%= leader.shift %></td>
+        <td><%= leader.dept %></td>
+        <td><%= leader.Common_Name %></td>
+        <td><%= leader.fullname %></td>
+        <td><%= leader.Middleproper %></td>
+        <td><%= leader.Lastproper %></td>
+        <td><%= leader.Firstproper %></td>
+        <td><%= leader.First %></td>
+        <td><%= leader.Middle %></td>
+        <td><%= leader.Last %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
