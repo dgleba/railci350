@@ -1,4 +1,8 @@
+version controlled.
 _____________ 
+
+i used C:\n\Dropbox\csd\apps\rails0csd\starterapp-2017-05-17-railsknow\get,column,names,types,for-scaffold,know,mysql,rails.txt
+rather than scaffold due to an error thrown by scaffold.
 
 
 ft project_number project_description owner planned_timing:date revised_timing:date estimated_cost:integer savings_category annual_savings_dollars percent_complete comments:text originator team documents_complete:integer one_time_savings hard_soft_savings:integer soft_dollars il1_target_date:date il2_target_date:date il3_target_date:date il4_target_date:date il5_target_date:date wc_idea_date:date actual_implementation_date:date enter_in_wc area updatedtime:datetime id_wc environmental ease_of_implementation submit next_steps suggestion_status suggestion_status_updated_at:datetime group metric_impact gift2_4_suggestion:integer gift_4_suggestion il_current createdtime:datetime link linkmore display ciid:integer 
@@ -30,4 +34,7 @@ _____________
 
 
 rails generate scaffold LkupSuggStatus name:string sort:integer active_status:integer --no-migration
+
+_____________ 
+
 
