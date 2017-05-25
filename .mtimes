@@ -10,3 +10,8 @@
 1495207844|config/puma/production.rb
 1495306583|config/puma/puma-rails5-developmnt.rb
 1495233375|config/puma/puma1.rb
+1495682610|.settings/.jsdtscope
+1495682610|.settings/org.eclipse.wst.jsdt.ui.superType.container
+1495682610|.settings/org.eclipse.wst.jsdt.ui.superType.name
+1495683466|app/views/cilisting1s/index.html.erb
+1495683277|app/views/cilisting1s/show.html.erb
