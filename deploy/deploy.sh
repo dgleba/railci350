@@ -24,7 +24,7 @@ usage:
 *******   Don't run with sudo..  *******
 
 
- cd /srv/web/railci350
+ cd /srv/web/rail263
  deploy/deploy.sh
 
 end -- usage. 
@@ -41,9 +41,9 @@ date ; set +vx  ; set -vx ; # echo off, then echo on
 
 # settings...
 
-prjname="railci350"
+prjname="lpa346"
 dpath="/srv/web/$prjname"
-vport="1301"
+vport="1293"
 
 
 
@@ -53,11 +53,15 @@ echo $vport
 
 cd $dpath
 
-mkdir -p shared/pids shared/sockets shared/log
+mkdir -p deployed/pids deployed/sockets deployed/log
 
 sudo cp deploy/puma.conf /etc/init/puma.conf
 sudo cp deploy/puma-manager.conf /etc/init/puma-manager.conf
+
 cp deploy/puma.rb config/puma.rb
+# I don't think this works.. it has to be config/puma.rb
+# mkdir -p config/puma 
+# cp deploy/puma/production.rb config/puma/production.rb
 
 
 #old..
@@ -90,7 +94,7 @@ sudo tee /etc/nginx/sites-available/$prjname.conf <<EOF
 
 upstream app$vport {
     # Path to Puma SOCK file, as defined previously
-    server unix:/srv/web/$prjname/shared/sockets/puma.sock fail_timeout=0;
+    server unix:/srv/web/$prjname/deployed/sockets/puma.sock fail_timeout=0;
 }
 
 server {
