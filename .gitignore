@@ -28,6 +28,7 @@ app/models/user.rb
 .powenv
 docprivate/
 /shared/
+/deployed/
 /offline/
 db/yamldb/
 db/yamldb_date/
