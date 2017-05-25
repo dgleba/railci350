@@ -1,17 +1,25 @@
 class User < ActiveRecord::Base
 
   self.table_name = 'users_rr'
- 
   
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable,  and :omniauthable , :timeoutable
-   devise :ldap_authenticatable,
-  # devise :database_authenticatable,
-    :trackable
-         #:validatable, :recoverable, :registerable, :rememberable,
-
-  #validates :email, presence: true, uniqueness: true, email: true
-  validates :email, presence: true, uniqueness: true
+  # if running on pmds then use ldap_authenticatable
+  #
+  if `hostname`.strip =~ /pmds/i then  
+    puts 'v2'
+    # Include default devise modules. Others available are:
+    # :confirmable, :lockable,  and :omniauthable , :timeoutable
+    devise :ldap_authenticatable,
+      :trackable
+    #:validatable, :recoverable, :registerable, :rememberable,
+  elsif
+    devise :database_authenticatable,
+      :trackable
+  end
+  
+  
+    #validates :email, presence: true, uniqueness: true, email: true
+    validates :email, presence: true, uniqueness: true
+  
 
   # has_many :surveys, dependent: :destroy
 

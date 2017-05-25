@@ -5,3 +5,8 @@
 1495338957|public/data/CI/CI-Lists
 1495233375|docs/ci350,dif,turnofflogin.txt
 1495387872|docs/railci350-scaffold-master.txt
+1495681036|app/models/user.rb
+1495679375|app/views/home/index.html.erb
+1495207844|config/puma/production.rb
+1495306583|config/puma/puma-rails5-developmnt.rb
+1495233375|config/puma/puma1.rb
