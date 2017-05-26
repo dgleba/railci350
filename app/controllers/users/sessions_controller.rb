@@ -10,6 +10,27 @@ class Users::SessionsController < Devise::SessionsController
   # Disable CSRF protection
   skip_before_action :verify_authenticity_token
 
+  auto_session_timeout_actions
+
+  #configure auto_session_timeout
+  def active
+    # this method comes from auto-session-timeout gem
+    render_session_status
+
+    # if your devise model is NOT named as `user`, use the code below
+    # instead of the above code.
+    # replace `user` in `current_user` with your devise model's name. (i.e. admin)
+    
+    # response.headers["Etag"] = ""  # clear etags to prevent caching
+    # render text: !!current_user, status: 200
+  end
+
+  def timeout
+    flash[:notice] = "Your session has timed out."
+    # you may change this to any_desired_path
+    redirect_to "/users/sign_in"
+  end
+
   
   # POST /resource/sign_in
   def create

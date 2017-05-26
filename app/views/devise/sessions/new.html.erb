@@ -12,4 +12,8 @@
   </div>
 <% end %>
 
+<% if current_user %>
+  <%= auto_session_timeout_js %>
+<% end %>
+
 <%= render "devise/shared/links" %>

@@ -78,5 +78,9 @@
       <%= yield %>
     </div>
 
+  <% if current_user %>
+    <%= auto_session_timeout_js %>
+  <% end %>
+
   </body>
 </html>

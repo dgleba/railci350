@@ -9,13 +9,16 @@ Rails.application.routes.draw do
 
   # devise_for :users
 
-
   # mount RailsAdmin::Engine => '/radmin', as: 'rails_admin'
   resources :roles
   devise_for :users, controllers: { sessions: 'users/sessions' }
+
+  devise_scope :user do
+    match 'active'            => 'users/sessions#active',               via: :get  
+    match 'timeout'           => 'users/sessions#timeout',              via: :get   
+  end  
   
   root "home#index"
-
 
   # get 'home/index'
 

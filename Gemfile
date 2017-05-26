@@ -72,3 +72,4 @@ gem 'rails_admin_mydash'
 gem 'enum_help'
 #
 gem 'best_in_place'
+gem 'auto-session-timeout'
