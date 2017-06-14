@@ -1,3 +1,50 @@
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+array1=( country_of_origin cilisting1  ci_review  leader  lkup_sugg_status  )
+array2=( CountryOfOrigin   Cilisting1  CiReview   Leader  LkupSuggStatus )  
+
+set -x
+for patrn in "${array1[@]}"
+do
+  echo $patrn
+  dest1="../0movedfiles1"
+  tmpf1='/tmp/rsyncfiles'
+  find . -type f  \( -iname "*$patrn*" ! -iname "production.rb" \) > $tmpf1 # files.
+    rsync -av --remove-source-files  --files-from=$tmpf1 . $dest1
+  find . -type d  \( -iname "*$patrn*"  \) > $tmpf1                        # directories/folders.
+  sed -i  's/$/\//' $tmpf1  # add trailing slash to end of each line in file..
+    rsync -av --remove-source-files  --files-from=$tmpf1 . $dest1
+done 
+#
+
+for patrn in "${array2[@]}"
+do
+  echo $patrn
+  rails destroy scaffold $patrn  
+done 
+set +x
+#
+
+for patrn in "${array1[@]}"
+do
+  echo $patrn
+  grep -ri  --exclude-dir={tmp,log,docs,.git} --exclude={*.sqlite3} $patrn .
+  grep -rli --exclude-dir={tmp,log,docs,.git} --exclude={*.sqlite3} $patrn .
+done  
+#
+
+ 
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 
 # move files matching criteria in find command...
   # this is for a rails project. move scaffolds.
@@ -158,6 +205,18 @@ rename development.sqlite3
 rake db:migrate
 rake db:seed
 
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 
+_____________
+
+
+array=( "one" "two" "three" )
+for i in "${array[@]}"
+do
+	echo $i
+done
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

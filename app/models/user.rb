@@ -7,10 +7,9 @@ class User < ActiveRecord::Base
   if `hostname`.strip =~ /pmds/i then  
     puts 'v2'
     # Include default devise modules. Others available are:
-    # :confirmable, :lockable,  and :omniauthable , :timeoutable
+    # :confirmable,  and :omniauthable , :timeoutable, :validatable, :rememberable,
     devise :ldap_authenticatable,
-      :trackable
-    #:validatable, :recoverable, :registerable, :rememberable,
+      :trackable, :registerable, :recoverable, :lockable 
   elsif
     devise :database_authenticatable,
       :trackable
